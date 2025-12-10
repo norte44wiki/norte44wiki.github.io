@@ -70,43 +70,6 @@ function calcularIdade(dataIso) {
   return idade;
 }
 
-// --------- PARSE GENÉRICO PARA "ANOS / CLUBE" DA BASE ---------
-function parsePeriodoClube(item) {
-  // Se já vier como objeto { anos, clube }, só devolve formatado
-  if (typeof item === "object" && item !== null) {
-    return {
-      anos: item.anos || "",
-      clube: item.clube || "",
-    };
-  }
-
-  let entry = String(item).trim();
-
-  // Caso 1: "2008–2016 — Norte44" ou "2008-2016 - Norte44"
-  let match1 = entry.match(/^(\d{4}.*?)(?:\s+—\s+|\s+-\s+)(.+)$/);
-  if (match1) {
-    return {
-      anos: match1[1].trim(),
-      clube: match1[2].trim(),
-    };
-  }
-
-  // Caso 2: "Norte44 (2008–2016)"
-  let match2 = entry.match(/^(.+?)\s+\(([^)]+)\)$/);
-  if (match2) {
-    return {
-      anos: match2[2].trim(),
-      clube: match2[1].trim(),
-    };
-  }
-
-  // Caso 3: não identificou padrão → mostra tudo como clube
-  return {
-    anos: "",
-    clube: entry,
-  };
-}
-
 // ---------------- PREENCHER PÁGINA ----------------
 function preencherPagina(data) {
   // Título da aba
@@ -115,28 +78,6 @@ function preencherPagina(data) {
   // Topo (nome e descrição)
   nomeEl.textContent = data.nome_curto || data.nome_completo || "Jogador";
   descCurtaEl.textContent = data.descricao_curta || "";
-
-  // BIO LONGA logo abaixo da descrição curta, à esquerda da foto
-  const bioContainer = document.getElementById("bio-container");
-  if (bioContainer) {
-    bioContainer.innerHTML = "";
-
-    if (
-      data.bio_paragrafos &&
-      Array.isArray(data.bio_paragrafos) &&
-      data.bio_paragrafos.length > 0
-    ) {
-      data.bio_paragrafos.forEach((paragrafo) => {
-        if (!paragrafo || paragrafo.trim() === "") return;
-        const p = document.createElement("p");
-        p.textContent = paragrafo;
-        bioContainer.appendChild(p);
-      });
-      bioContainer.style.display = "block";
-    } else {
-      bioContainer.style.display = "none";
-    }
-  }
 
   // Foto e legenda
   legendaFotoEl.textContent =
@@ -187,18 +128,33 @@ function preencherPagina(data) {
     if (rowOutras) rowOutras.style.display = "none";
   }
 
-  // ---------------- CATEGORIA DE BASE ----------------
+  // ---------------- CLUBES DE JUVENTUDE ----------------
+  // categoria de base (anos + clube)
+  // categoria de base (anos + clube em tabela)
   clubesJuventudeBody.innerHTML = "";
   if (data.clubes_juventude && data.clubes_juventude.length > 0) {
     data.clubes_juventude.forEach((item) => {
-      const info = parsePeriodoClube(item);
+      // aceita tanto string "2008–2016 — Norte44"
+      // quanto objeto { anos: "...", clube: "..." }
+      let anos = "";
+      let clube = "";
+
+      if (typeof item === "string") {
+        const partes = item.split("—");
+        anos = (partes[0] || "").trim();
+        clube = (partes[1] || "").trim();
+      } else {
+        anos = item.anos || "";
+        clube = item.clube || "";
+      }
 
       const tr = document.createElement("tr");
+
       const tdAnos = document.createElement("td");
       const tdClube = document.createElement("td");
 
-      tdAnos.textContent = info.anos;
-      tdClube.textContent = info.clube;
+      tdAnos.textContent = anos;
+      tdClube.textContent = clube;
 
       tr.appendChild(tdAnos);
       tr.appendChild(tdClube);
@@ -214,6 +170,7 @@ function preencherPagina(data) {
   }
 
   // ---------------- CLUBES PROFISSIONAIS ----------------
+  // clubes profissionais (tabela)
   clubesProfBody.innerHTML = "";
   if (data.clubes_profissionais && data.clubes_profissionais.length > 0) {
     data.clubes_profissionais.forEach((c) => {
@@ -223,14 +180,17 @@ function preencherPagina(data) {
       const tdClube = document.createElement("td");
       const tdJogos = document.createElement("td");
 
+      // Anos
       tdAnos.textContent = c.anos || "";
 
+      // Clube: se for empréstimo, coloca setinha e (emp.)
       if (c.emprestimo) {
         tdClube.textContent = `→ ${c.clube} (emp.)`;
       } else {
         tdClube.textContent = c.clube || "";
       }
 
+      // Jogos e gols
       tdJogos.textContent = c.jogos_gols || "";
 
       tr.appendChild(tdAnos);

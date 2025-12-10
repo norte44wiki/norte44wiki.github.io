@@ -1,0 +1,30 @@
+{
+        "anos": "2025",
+        "clube": "Norte44",
+        "jogos_gols": "",
+        "emprestimo": true
+      },
+
+
+
+
+    "clubes_profissionais": [
+      {
+        "anos": "2016–",
+        "clube": "Norte44",
+        "jogos_gols": "541 (494)"
+      }
+    ],
+
+    "selecao_nacional": [
+      {
+        "anos": "2015–2017",
+        "selecao": "Finlândia (base)",
+        "jogos_gols": "23 (18)"
+      },
+      {
+        "anos": "2017–",
+        "selecao": "Finlândia",
+        "jogos_gols": "107 (74)"
+      }
+    ]

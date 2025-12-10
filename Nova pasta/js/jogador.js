@@ -83,6 +83,7 @@ function parsePeriodoClube(item) {
   let entry = String(item).trim();
 
   // Caso 1: "2008–2016 — Norte44" ou "2008-2016 - Norte44"
+  // (começa com ano)
   let match1 = entry.match(/^(\d{4}.*?)(?:\s+—\s+|\s+-\s+)(.+)$/);
   if (match1) {
     return {
@@ -91,7 +92,7 @@ function parsePeriodoClube(item) {
     };
   }
 
-  // Caso 2: "Norte44 (2008–2016)"
+  // Caso 2: "Norte44 (2008–2016)" ou "(2008-2016)", "(2014 - Presente)" etc
   let match2 = entry.match(/^(.+?)\s+\(([^)]+)\)$/);
   if (match2) {
     return {
@@ -115,28 +116,6 @@ function preencherPagina(data) {
   // Topo (nome e descrição)
   nomeEl.textContent = data.nome_curto || data.nome_completo || "Jogador";
   descCurtaEl.textContent = data.descricao_curta || "";
-
-  // BIO LONGA logo abaixo da descrição curta, à esquerda da foto
-  const bioContainer = document.getElementById("bio-container");
-  if (bioContainer) {
-    bioContainer.innerHTML = "";
-
-    if (
-      data.bio_paragrafos &&
-      Array.isArray(data.bio_paragrafos) &&
-      data.bio_paragrafos.length > 0
-    ) {
-      data.bio_paragrafos.forEach((paragrafo) => {
-        if (!paragrafo || paragrafo.trim() === "") return;
-        const p = document.createElement("p");
-        p.textContent = paragrafo;
-        bioContainer.appendChild(p);
-      });
-      bioContainer.style.display = "block";
-    } else {
-      bioContainer.style.display = "none";
-    }
-  }
 
   // Foto e legenda
   legendaFotoEl.textContent =
@@ -223,14 +202,17 @@ function preencherPagina(data) {
       const tdClube = document.createElement("td");
       const tdJogos = document.createElement("td");
 
+      // Anos
       tdAnos.textContent = c.anos || "";
 
+      // Clube: se for empréstimo, coloca setinha e (emp.)
       if (c.emprestimo) {
         tdClube.textContent = `→ ${c.clube} (emp.)`;
       } else {
         tdClube.textContent = c.clube || "";
       }
 
+      // Jogos e gols
       tdJogos.textContent = c.jogos_gols || "";
 
       tr.appendChild(tdAnos);
