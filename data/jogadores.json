@@ -6,8 +6,13 @@
 
     "descricao_curta": "Virgil Gerbito Virtonen, mais conhecido como Gerbito, é um futebolista finlandês que atua como atacante e ponta-direita pelo Norte44 e pela seleção da Finlândia.",
 
-    "legenda_imagem": "Gerbito atuando pelo Norte44 em 2024.",
-
+    "legenda_imagem": "Gerbito em 2024.",
+    "bio_paragrafos": [
+      "Apesar da pouca idade, Gerbito é considerado um dos maiores jogadores da história do Norte44 e o maior talento revelado pelas categorias de base do clube desde Hervisty.",
+      "Jogador extremamente criativo e veloz, destaca-se pela habilidade no drible, grande capacidade de finalização e visão de jogo apurada, sendo capaz de decidir partidas tanto individualmente quanto na construção coletiva.",
+      "Mesmo ainda jovem, já figura entre os maiores artilheiros da história do clube, evidenciando seu impacto precoce e consistência em alto nível.",
+      "Pela seleção da Finlândia, exerce papel de grande importância, sendo um dos principais goleadores e um dos atletas com maior participação direta em gols e número de aparições, consolidando-se como um jogador decisivo também no cenário internacional."
+    ],
     "data_nascimento_iso": "2001-06-16",
     "data_nascimento_texto": "16 de junho de 2001",
     "local_nascimento": "Helsinki, Uusimaa, Finlândia",
@@ -198,7 +203,7 @@
     "nome_completo": "Ye Shi-U",
 
     "descricao_curta": "Ye Shi-U é um futebolista sul-coreano nascido na Finlândia que atua como zagueiro pelo Norte44 e pela Seleção da Coreia do Sul.",
-    "legenda_imagem": "Shi-U em ação pelo Norte44 na temporada 2024–25.",
+    "legenda_imagem": "Shi-U pelo Norte44 na temporada 2024–25.",
 
     "data_nascimento_iso": "1994-09-18",
     "data_nascimento_texto": "18 de setembro de 1994",
@@ -439,7 +444,7 @@
     "nome_completo": "Christian Pallis",
 
     "descricao_curta": "Christian Pallis é um futebolista australiano nascido na Finlândia que atua como meia ou volante pelo Norte44 e pela seleção da Austrália.",
-    "legenda_imagem": "Christian Pallis pelo Norte44",
+    "legenda_imagem": "Christian Pallis pelo Norte44 em 2024",
 
     "data_nascimento_iso": "1998-09-22",
     "data_nascimento_texto": "22 de setembro de 1998",
@@ -472,7 +477,7 @@
     "nome_completo": "Kaio Silva Choi",
 
     "descricao_curta": "Kaio Silva Choi é um futebolista sul-coreano-brasileiro que atua como meia e volante pelo Norte44 e pela seleção da Coreia do Sul.",
-    "legenda_imagem": "Kaio em ação pelo Norte44",
+    "legenda_imagem": "Kaio pelo Norte44 em 2024",
 
     "data_nascimento_iso": "1996-01-08",
     "data_nascimento_texto": "8 de janeiro de 1996",
@@ -653,10 +658,12 @@
     "nome_completo": "Hervisty Järvinen",
 
     "descricao_curta": "Hervisty Järvinen é um futebolista finlandês que atua como atacante e ponta pelo Norte44 e pela seleção da Finlândia.",
-    "legenda_imagem": "Hervisty atuando pelo Norte44 com a camisa 10",
+    "legenda_imagem": "Hervisty em 2023",
     "bio_paragrafos": [
-      "Considerado o maior ídolo da história do Norte44, Hervisty é conhecido pela combinação rara de força física, controle de bola e visão de jogo. Mesmo atuando como atacante, participa ativamente da construção das jogadas, recuando para armar e acelerando em direção à área com grande explosão.",
-      "Dentro de campo, é visto como um líder natural: assume responsabilidade em momentos decisivos, chama o jogo para si e costuma aparecer em gols importantes em finais e jogos grandes. Fora de campo, é referência para as gerações mais jovens da base do clube."
+      "Considerado um dos maiores jogadores da história do Norte44, Hervisty também figura entre os grandes nomes da história da seleção da Finlândia. Dono de uma combinação rara de força física, controle de bola e visão de jogo, construiu uma carreira marcada por regularidade, longevidade e impacto constante nas principais fases do clube.",
+      "Mesmo atuando como atacante, Hervisty participa ativamente da construção das jogadas, recuando para organizar o jogo e acelerando em direção à área com grande explosão. Sua inteligência tática e capacidade de leitura o tornam decisivo tanto na criação quanto na finalização das jogadas.",
+      "É o maior artilheiro da história do Norte44 e o segundo jogador com maior número de partidas oficiais pelo clube, números que reforçam sua importância histórica e seu papel central na consolidação do Norte44 ao longo dos anos.",
+      "Pela seleção da Finlândia, também figura entre os principais goleadores da história, sendo o segundo maior artilheiro da equipe nacional. Dentro de campo, é reconhecido como um líder natural, capaz de contagiar os companheiros, assumir responsabilidades em momentos decisivos e aparecer com frequência em gols importantes em finais e jogos de grande peso. Fora de campo, é referência para as gerações mais jovens da base do clube."
     ],
 
     "data_nascimento_iso": "1994-11-03",
@@ -858,14 +865,15 @@
     "clubes_juventude": ["Norte44 (1997–2005)"],
 
     "clubes_profissionais": [
-      { "anos": "2005", "clube": "Norte44", "jogos_gols": "" },
+      { "anos": "2005–2007", "clube": "Norte44", "jogos_gols": "" },
       {
         "anos": "2005–2007",
         "clube": "Fulham",
         "jogos_gols": "",
         "emprestimo": true
       },
-      { "anos": "2007–2015", "clube": "Norte44", "jogos_gols": "" },
+      { "anos": "2007–2008", "clube": "Fulham", "jogos_gols": "" },
+      { "anos": "2008–2015", "clube": "Norte44", "jogos_gols": "" },
       { "anos": "2015–2018", "clube": "Brtlty City", "jogos_gols": "" },
       { "anos": "2018–2020", "clube": "Tigers", "jogos_gols": "" },
       {
@@ -1537,7 +1545,7 @@
         "jogos_gols": ""
       }
     ],
-    "legenda_imagem": "Baird pelo Tigers."
+    "legenda_imagem": "Baird pelo Norte44 em 2018."
   },
   {
     "id": "ciro",
@@ -1628,7 +1636,7 @@
         "jogos_gols": ""
       }
     ],
-    "legenda_imagem": "Gebirge Hakinen em sua segunda passagem pelo Norte44."
+    "legenda_imagem": "Gebirge Hakinen em sua segunda passagem pelo Norte44 em 2017."
   },
   {
     "id": "deeso",
